@@ -1,34 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Link Shorter
 
-## Getting Started
+Web application for shortening links, built with Next.js, React, TypeScript and Tailwind CSS v4. Consumes a custom API in Go responsible for generating and redirecting shortened links.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+## About the project
+
+The user enters a link in the input field, the link is sent to the shortening API, and a new, shorter link is returned and displayed on screen with a copy option.
+
+## Tech stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS v4
+
+## Prerequisites
+
+- Node.js 18 or higher
+- Shortening API (Go backend) running locally or in production
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd link-shorter
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the project root with the API URL:
 
-## Learn More
+```
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Running locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application will be available at `http://localhost:3000`.
 
-## Deploy on Vercel
+## Component structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+components/
+  input-link/
+    input-link.tsx      # Link input field and API submission
+  output-link/
+    output-link.tsx     # Displays the shortened link with a copy button
+  explanation/
+    explanation.tsx     # Main section with title, mascot, input and output
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Available scripts
+
+| Command       | Description                     |
+|---------------|----------------------------------|
+| `pnpm dev`    | Starts the development server    |
+| `pnpm build`  | Creates a production build       |
+| `pnpm start`  | Starts the app in production mode|
+| `pnpm lint`   | Runs the linter                  |
+
+## License
+
+This project is licensed under the MIT License.

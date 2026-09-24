@@ -11,12 +11,13 @@ export const InputLink = ({ onShorten }: InputLinkProps) => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        const response = await fetch("/api/shorten", {
+        const response = await fetch("http://localhost:8080/api/shorten", {
             method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ url }),
         })
         const data = await response.json()
-        onShorten(data.shortLink)
+        onShorten(`http://localhost:8080/${data.data}`)
     }
 
     return (
